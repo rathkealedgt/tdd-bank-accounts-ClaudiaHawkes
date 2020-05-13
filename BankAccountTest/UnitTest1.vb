@@ -35,9 +35,18 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         'Act
         Dim Account1 As New BankAccounts.BankAccount(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
         Dim Name As String = Account1.GetAccountHolder()
+        Dim Number As String = Account1.GetAccountNumber()
+        Dim Interest As Double = Account1.GetInterestRate()
+        Dim AccountBalance As Double = Account1.GetBalance()
+        Dim Country As String = Account1.GetCountryOfOrigin()
 
         'Assert
         Assert.AreEqual(Name, "Ms I. N. Cognito")
+        Assert.AreEqual(Number, "ABCD 890111 11167890")
+        Assert.AreEqual(Interest, 4.3)
+        Assert.AreEqual(AccountBalance, 10343.82)
+        Assert.AreEqual(Country, "Isle of Man")
+
     End Sub
 
 End Class

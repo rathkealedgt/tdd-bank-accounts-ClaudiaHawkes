@@ -39,5 +39,24 @@ Public Class BankAccount
 
     End Function
 
+    Public Function GetAccountNumber() As String
+        Return Me.AccountNumber
+
+    End Function
+
+    Public Function GetInterestRate() As Double
+        Return Me.InterestRate
+
+    End Function
+
+    Public Function GetBalance() As Double
+        Return Me.Balance
+
+    End Function
+
+    Public Function GetCountryOfOrigin() As String
+        Return Me.CountryOfOrigin
+
+    End Function
 
 End Class
