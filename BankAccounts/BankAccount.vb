@@ -59,4 +59,19 @@ Public Class BankAccount
 
     End Function
 
+    Public Function SetInterestRate(Rate As Double)
+        Me.InterestRate = Rate
+        Return Nothing
+    End Function
+
+    Public Function ApplyInterest()
+        'Dim NewBalance As Double = Me.Balance + (Me.Balance + (Me.Balance * 0.043 * (1 / 12)))
+        Dim NewBalance As Double = Me.Balance + (Me.Balance * Me.InterestRate / 100 * (1 / 12))
+
+        Me.Balance = Math.Round(NewBalance, 2)
+
+        Return Nothing
+    End Function
+
 End Class
+
