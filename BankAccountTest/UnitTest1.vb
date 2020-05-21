@@ -1,4 +1,5 @@
 ﻿Imports System.Text
+Imports BankAccounts
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
 <TestClass()> Public Class UnitTest1
@@ -72,6 +73,25 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Assert
         Assert.AreEqual(Account1.GetBalance(), 10380.89)
+    End Sub
+
+    <TestMethod()> Public Sub TestToStringMethod()
+
+        'Arrange
+        Dim ExpectedValueString As New StringBuilder()
+        ExpectedValueString.Append("Isle of Man" & vbCrLf)
+        ExpectedValueString.Append("ABCD 890111 11167890" & vbCrLf)
+        ExpectedValueString.Append("Ms I. N. Cognito" & vbCrLf)
+        ExpectedValueString.Append("Interest: 4.3%" & vbCrLf)
+        ExpectedValueString.Append("10343.82" & vbCrLf)
+
+        Dim Account1 As BankAccount = NewAccount()
+
+        'Act
+        Dim ActualString = Account1.ToString()
+
+        'Assert
+        Assert.AreEqual(ExpectedValueString.ToString(), ActualString)
     End Sub
 
     Private Function NewAccount() As BankAccounts.BankAccount

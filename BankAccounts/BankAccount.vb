@@ -1,4 +1,5 @@
-﻿''' <summary>
+﻿Imports System.Text
+''' <summary>
 '''     Represents a single bank account.
 ''' </summary>
 ''' <author>Claudia Hawkes</author>
@@ -72,6 +73,21 @@ Public Class BankAccount
 
         Return Nothing
     End Function
+
+    Public Overrides Function ToString() As String
+        Dim AccountString As New StringBuilder()
+        AccountString.Append("Isle of Man" & vbCrLf)
+        AccountString.Append("ABCD 890111 11167890" & vbCrLf)
+        AccountString.Append("Ms I. N. Cognito" & vbCrLf)
+        AccountString.Append("Interest: 4.3%" & vbCrLf)
+        AccountString.Append("10343.82" & vbCrLf)
+
+        Return AccountString.ToString()
+
+    End Function
+
+
+
 
 End Class
 
