@@ -108,6 +108,37 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestWithdrawalSmall()
+
+        'Arrange
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim ExpectedVal As Double = 10343.82 - 700.0
+
+        'Act
+        Dim NewBalance = Account1.Withdrawal(700.0)
+
+        'Assert
+        Assert.AreEqual(ExpectedVal, NewBalance)
+    End Sub
+
+
+    <TestMethod()> Public Sub TestWithdrawalLarge()
+
+        'Arrange
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim ExpectedVal As Double = 10343.82 - 700.0
+
+        'Act
+        Try
+            Dim NewBalance = Account1.Withdrawal(700.0)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
+        'Assert
+        Assert.AreEqual(ExpectedVal, Account1.GetBalance)
+    End Sub
+
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I. N. Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"

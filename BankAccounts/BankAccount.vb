@@ -80,6 +80,16 @@ Public Class BankAccount
         Return Me.Balance
     End Function
 
+    Public Function Withdrawal(Amount As Double) As Double
+        If Amount > Me.Balance Then
+            Throw New Exception("Insufficient Funds")
+        End If
+
+        Me.Balance -= Amount
+
+        Return Me.Balance
+    End Function
+
     Public Overrides Function ToString() As String
         Dim AccountString As New StringBuilder()
         AccountString.Append("Isle of Man" & vbCrLf)
