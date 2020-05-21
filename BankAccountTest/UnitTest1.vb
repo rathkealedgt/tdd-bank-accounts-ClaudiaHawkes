@@ -94,6 +94,20 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(ExpectedValueString.ToString(), ActualString)
     End Sub
 
+    <TestMethod()> Public Sub TestDeposit()
+
+        'Arrange
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim ExpectedValue As Double = 10343.82 + 700
+
+        'Act
+        Dim ActualValue As Double = Account1.Deposit(700)
+
+        'Assert
+        Assert.AreEqual(ExpectedValue, ActualValue)
+
+    End Sub
+
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I. N. Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"

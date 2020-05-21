@@ -74,6 +74,12 @@ Public Class BankAccount
         Return Nothing
     End Function
 
+    Public Function Deposit(Amount As Double) As Double
+        Me.Balance += Amount
+
+        Return Me.Balance
+    End Function
+
     Public Overrides Function ToString() As String
         Dim AccountString As New StringBuilder()
         AccountString.Append("Isle of Man" & vbCrLf)
